@@ -8,7 +8,7 @@ import NavLink from '../NavLink';
 import { motion } from 'framer-motion';
 import { textVariant, navVariants } from '../../../utils/motion';
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const [state, setState] = useState(false);
 
   const navigation = [
@@ -25,6 +25,11 @@ const Navbar = () => {
     setState(false);
     document.body.classList.remove('overflow-hidden');
   };
+  const handleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+
+    document.body.classList.toggle('dark');
+  };
 
   return (
     <motion.header
@@ -33,18 +38,24 @@ const Navbar = () => {
       whileInView='show'
     >
       <nav
-        className={`bg-white w-full md:static md:text-sm ${
+        className={`dark:bg-gray-800 bg-white w-full md:static md:text-sm ${
           state ? 'fixed z-10 h-full' : ''
         }`}
       >
         <div className='custom-screen items-center mx-auto md:flex'>
           <div className='flex items-center justify-between py-3 md:py-5 md:block'>
             <Brand />
-            <div className='md:hidden'>
+            <div className='md:hidden flex items-center gap-4'>
+              <button
+                className='14px'
+                onClick={handleDarkMode}
+              >
+                {isDarkMode ? '☀' : '🌙'}
+              </button>
               <button
                 role='button'
                 aria-label='Open the menu'
-                className='text-gray-500 hover:text-gray-800'
+                className='text-gray-500 hover:text-gray-800 dark:text-gray-300'
                 onClick={handleNavMenu}
               >
                 {state ? (
@@ -88,11 +99,18 @@ const Navbar = () => {
             whileInView='show'
           >
             <ul className='text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium'>
+              <button
+                className='14px hidden md:block'
+                onClick={handleDarkMode}
+              >
+                {isDarkMode ? '☀' : '🌙'}
+              </button>
               {navigation.map((item, idx) => {
                 return (
                   <li
                     key={idx}
-                    className='duration-150 hover:text-gray-900'
+                    className='duration-150 hover:text-gray-900 dark:text-gray-300
+                    dark:hover:text-gray-100'
                     onClick={() => handleScroll()}
                   >
                     <Link
@@ -107,7 +125,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   href='/get-started'
-                  className='block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline'
+                  className='block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 dark:bg-white dark:hover:bg-gray-300 dark:text-gray-800 md:inline'
                   onClick={() => handleScroll()}
                 >
                   Let's work

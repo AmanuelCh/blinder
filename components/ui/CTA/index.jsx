@@ -36,10 +36,10 @@ const CTA = () => {
             className='max-w-xl mt-6 md:mt-0 lg:max-w-2xl'
             variants={textVariant(0.8)}
           >
-            <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
+            <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl dark:text-gray-200'>
               Create Successful Business Models and Watch It Come True.
             </h2>
-            <p className='mt-3 text-gray-600'>
+            <p className='mt-3 text-gray-600 dark:text-gray-300'>
               Hi, I'm John Doe, a software developer. I help you digitize
               businesses by focusing on your business challenges and needs. I
               value close transparent cooperation and encourage you to
@@ -47,7 +47,7 @@ const CTA = () => {
             </p>
             <NavLink
               href='/get-started'
-              className='inline-block mt-4 font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800'
+              className='inline-block mt-4 font-medium text-sm text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 dark:bg-indigo-500'
             >
               Get started
             </NavLink>

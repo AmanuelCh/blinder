@@ -16,14 +16,14 @@ const Hero = () => (
     >
       <div className='space-y-5 max-w-4xl mx-auto text-center'>
         <motion.h1
-          className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'
+          className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl dark:text-gray-100'
           variants={textVariant(0.7)}
         >
           Build and scale your next business idea faster
         </motion.h1>
 
         <motion.p
-          className='max-w-xl mx-auto'
+          className='max-w-xl mx-auto dark:text-gray-300'
           variants={textVariant(0.8)}
         >
           I'm here for you to build and grow your business idea so that you get
@@ -35,13 +35,13 @@ const Hero = () => (
         >
           <NavLink
             href='/get-started'
-            className='text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 '
+            className='text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 dark:bg-white dark:hover:bg-gray-300 dark:text-gray-800'
           >
             Contact me
           </NavLink>
           <NavLink
             href='#cta'
-            className='text-gray-700 border hover:bg-gray-50'
+            className='text-gray-700 border hover:bg-gray-50 dark:text-gray-300 dark:border-gray-300 dark:hover:bg-transparent dark:hover:border-gray-800'
             scroll={false}
           >
             Learn more

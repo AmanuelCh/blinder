@@ -5,6 +5,10 @@ import freshbooks from '../../../public/logos/freshbooks.svg';
 import sendgrid from '../../../public/logos/sendgrid.svg';
 import layers from '../../../public/logos/layers.svg';
 import adobe from '../../../public/logos/adobe.svg';
+import freshbooksLight from '../../../public/logos/freshbooks-light.svg';
+import sendgridLight from '../../../public/logos/sendgrid-light.svg';
+import layersLight from '../../../public/logos/layers-light.svg';
+import adobeLight from '../../../public/logos/adobe-light.svg';
 
 import { motion } from 'framer-motion';
 import {
@@ -16,23 +20,27 @@ import {
 const logos = [
   {
     src: freshbooks,
+    srcLight: freshbooksLight,
     alt: 'freshbooks',
   },
   {
     src: sendgrid,
+    srcLight: sendgridLight,
     alt: 'sendgrid',
   },
   {
     src: layers,
+    srcLight: layersLight,
     alt: 'layers',
   },
   {
     src: adobe,
+    srcLight: adobeLight,
     alt: 'adobe',
   },
 ];
 
-const LogoGrid = () => (
+const LogoGrid = ({ isDarkMode }) => (
   <div>
     <motion.div
       className='custom-screen'
@@ -42,7 +50,7 @@ const LogoGrid = () => (
       viewport={{ once: false, amount: 0.25 }}
     >
       <motion.h2
-        className='font-semibold text-sm text-gray-600 text-center uppercase'
+        className='font-semibold text-sm text-gray-600 text-center uppercase dark:text-gray-300'
         variants={textVariant(1)}
         initial='hidden'
         animate='show'
@@ -59,7 +67,7 @@ const LogoGrid = () => (
               animate='show'
             >
               <Image
-                src={item.src}
+                src={isDarkMode ? item.srcLight : item.src}
                 alt={item.alt}
               />
             </motion.li>

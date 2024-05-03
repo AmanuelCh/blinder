@@ -1,6 +1,5 @@
-import Footer from '../components/ui/Footer';
-import Navbar from '../components/ui/Navbar';
 import '../styles/globals.css';
+import Main from './Main';
 
 export const metadata = {
   title: 'John Doe - Fullstack Developer',
@@ -14,10 +13,8 @@ export default function RootLayout({ children }) {
       className='scroll-smooth'
       lang='en'
     >
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <body className='dark:bg-gray-800'>
+        <Main children={children} />
       </body>
     </html>
   );

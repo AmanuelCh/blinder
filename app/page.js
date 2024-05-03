@@ -7,11 +7,11 @@ import LogoGrid from '../components/ui/LogoGrid';
 import Testimonials from '../components/ui/Testimonials';
 import ToolKit from '../components/ui/ToolKit';
 
-export default function Home() {
+export default function Home({ isDarkMode }) {
   return (
     <>
       <Hero />
-      <LogoGrid />
+      <LogoGrid isDarkMode={isDarkMode} />
       <GradientWrapper>
         <Features />
         <CTA />

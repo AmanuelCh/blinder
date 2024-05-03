@@ -68,7 +68,7 @@ const Testimonials = () => {
       >
         <div className='max-w-2xl sm:text-center md:mx-auto'>
           <motion.h2
-            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl dark:text-gray-200'
             variants={textVariant(0.7)}
             initial='hidden'
             whileInView='show'
@@ -76,7 +76,7 @@ const Testimonials = () => {
             See what others saying about us
           </motion.h2>
           <motion.p
-            className='mt-3 text-gray-600'
+            className='mt-3 text-gray-600 dark:text-gray-300'
             variants={textVariant(0.9)}
             initial='hidden'
             whileInView='show'
@@ -89,7 +89,7 @@ const Testimonials = () => {
             {testimonials.map((item, idx) => (
               <motion.li
                 key={idx}
-                className='bg-white border p-4 rounded-xl'
+                className='bg-white border p-4 rounded-xl dark:bg-transparent dark:border-gray-600'
                 variants={textVariant(0.7)}
                 initial='hidden'
                 whileInView='show'
@@ -102,16 +102,18 @@ const Testimonials = () => {
                       alt={item.name}
                     />
                     <div>
-                      <span className='block text-gray-800 font-semibold'>
+                      <span className='block text-gray-800 font-semibold dark:text-gray-200'>
                         {item.name}
                       </span>
-                      <span className='block text-gray-600 text-sm mt-0.5'>
+                      <span className='block text-gray-600 text-sm mt-0.5 dark:text-gray-300'>
                         {item.title}
                       </span>
                     </div>
                   </div>
                   <blockquote>
-                    <p className='mt-6 text-gray-700'>{item.quote}</p>
+                    <p className='mt-6 text-gray-700 dark:text-gray-400'>
+                      {item.quote}
+                    </p>
                   </blockquote>
                 </figure>
               </motion.li>

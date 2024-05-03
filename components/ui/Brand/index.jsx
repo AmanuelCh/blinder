@@ -10,7 +10,9 @@ const Brand = () => (
         alt='Blinder logo'
         className='w-[30px]'
       />
-      <h3 className='text-gray-700 text-[20px] font-mono'>JD</h3>
+      <h3 className='text-gray-700 text-[20px] font-mono dark:text-gray-200'>
+        JD
+      </h3>
     </div>
   </Link>
 );

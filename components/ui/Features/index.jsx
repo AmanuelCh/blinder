@@ -119,12 +119,15 @@ const Features = () => {
       >
         <div className='max-w-2xl mx-auto space-y-3 sm:text-center'>
           <motion.h2
-            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl dark:text-gray-200'
             variants={textVariant(0.2)}
           >
             What sets me apart
           </motion.h2>
-          <motion.p variants={textVariant(0.3)}>
+          <motion.p
+            className='dark:text-gray-300'
+            variants={textVariant(0.3)}
+          >
             These are among the things that set me apart from the rest
           </motion.p>
         </div>
@@ -132,16 +135,16 @@ const Features = () => {
           {features.map((item, idx) => (
             <motion.li
               key={idx}
-              className='space-y-3 bg-white border p-4 rounded-xl'
+              className='space-y-3 bg-white border p-4 rounded-xl dark:bg-transparent dark:border-gray-600'
               variants={textVariant(0.7)}
             >
-              <div className='w-12 h-12 border text-indigo-600 rounded-full flex items-center justify-center'>
+              <div className='w-12 h-12 border text-indigo-600 rounded-full flex items-center justify-center dark:text-indigo-500 dark:border-gray-600'>
                 {item.icon}
               </div>
-              <h4 className='text-lg text-gray-800 font-semibold'>
+              <h4 className='text-lg text-gray-800 font-semibold dark:text-gray-200'>
                 {item.title}
               </h4>
-              <p>{item.desc}</p>
+              <p className='dark:text-gray-300'>{item.desc}</p>
             </motion.li>
           ))}
         </ul>

@@ -58,12 +58,15 @@ const ToolKit = () => {
       >
         <div className='max-w-2xl mx-auto space-y-3 sm:text-center'>
           <motion.h2
-            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl dark:text-gray-200'
             variants={textVariant(0.3)}
           >
             Work with the best toolkit
           </motion.h2>
-          <motion.p variants={textVariant(0.4)}>
+          <motion.p
+            className='dark:text-gray-300'
+            variants={textVariant(0.4)}
+          >
             These are a few of our favourite things
           </motion.p>
         </div>
@@ -82,10 +85,10 @@ const ToolKit = () => {
                   />
                 </div>
                 <div>
-                  <h4 className='text-lg text-gray-800 font-semibold'>
+                  <h4 className='text-lg text-gray-800 font-semibold dark:text-gray-300'>
                     {item.title}
                   </h4>
-                  <p className='mt-3'>{item.desc}</p>
+                  <p className='mt-3 dark:text-gray-400'>{item.desc}</p>
                 </div>
               </motion.li>
             ))}
