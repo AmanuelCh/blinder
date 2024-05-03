@@ -1,3 +1,5 @@
+import { delay } from 'framer-motion';
+
 export const navVariants = {
   hidden: {
     opacity: 0,
@@ -14,7 +16,7 @@ export const navVariants = {
     transition: {
       type: 'spring',
       stiffness: 80,
-      delay: 1,
+      delay: 0.6,
     },
   },
 };
@@ -72,7 +74,7 @@ export const textContainer = {
   }),
 };
 
-export const textVariant2 = {
+export const textVariant2 = (delay) => ({
   hidden: {
     opacity: 0,
     y: 20,
@@ -83,9 +85,10 @@ export const textVariant2 = {
     transition: {
       type: 'tween',
       ease: 'easeIn',
+      delay,
     },
   },
-};
+});
 
 export const fadeIn = (direction, type, delay, duration) => ({
   hidden: {
@@ -102,22 +105,6 @@ export const fadeIn = (direction, type, delay, duration) => ({
       delay,
       duration,
       ease: 'easeOut',
-    },
-  },
-});
-
-export const planetVariants = (direction) => ({
-  hidden: {
-    x: direction === 'left' ? '-100%' : '100%',
-    rotate: 120,
-  },
-  show: {
-    x: 0,
-    rotate: 0,
-    transition: {
-      type: 'spring',
-      duration: 1.8,
-      delay: 0.5,
     },
   },
 });

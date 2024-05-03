@@ -1,3 +1,8 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { footerVariants } from '../../../utils/motion';
+
 const socialInfo = [
   {
     icon: (
@@ -77,7 +82,11 @@ const socialInfo = [
 ];
 
 const Footer = () => (
-  <footer>
+  <motion.footer
+    variants={footerVariants}
+    initial='hidden'
+    whileInView='show'
+  >
     <div className='custom-screen pt-16'>
       <div className='mt-10 py-10 border-t items-center justify-between sm:flex'>
         <p className='text-gray-600'>© 2024 John Doe. All rights reserved.</p>
@@ -96,7 +105,7 @@ const Footer = () => (
         </div>
       </div>
     </div>
-  </footer>
+  </motion.footer>
 );
 
 export default Footer;

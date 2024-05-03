@@ -1,3 +1,5 @@
+'use client';
+
 import SectionWrapper from '../../SectionWrapper';
 import Image from 'next/image';
 import wordpress from '../../../public/icons/wordpress.svg';
@@ -6,6 +8,9 @@ import tailwind from '../../../public/icons/tailwind.svg';
 import nodejs from '../../../public/icons/nodejs.svg';
 import vercel from '../../../public/icons/vercel.svg';
 import figma from '../../../public/icons/figma.svg';
+
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
 
 const ToolKit = () => {
   const features = [
@@ -43,22 +48,32 @@ const ToolKit = () => {
 
   return (
     <SectionWrapper>
-      <div
+      <motion.div
         id='toolkit'
         className='max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8'
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false, amount: 0.25 }}
       >
         <div className='max-w-2xl mx-auto space-y-3 sm:text-center'>
-          <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
+          <motion.h2
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            variants={textVariant(0.3)}
+          >
             Work with the best toolkit
-          </h2>
-          <p>These are a few of our favourite things</p>
+          </motion.h2>
+          <motion.p variants={textVariant(0.4)}>
+            These are a few of our favourite things
+          </motion.p>
         </div>
         <div className='mt-12'>
           <ul className='grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3'>
             {features.map((item, idx) => (
-              <li
+              <motion.li
                 key={idx}
                 className='flex gap-x-4'
+                variants={textVariant(0.7)}
               >
                 <div className='flex-none w-12 h-12 gradient-border rounded-full flex items-center justify-center'>
                   <Image
@@ -72,11 +87,11 @@ const ToolKit = () => {
                   </h4>
                   <p className='mt-3'>{item.desc}</p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };

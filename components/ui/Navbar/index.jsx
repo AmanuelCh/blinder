@@ -5,6 +5,9 @@ import { useState } from 'react';
 import Brand from '../Brand';
 import NavLink from '../NavLink';
 
+import { motion } from 'framer-motion';
+import { textVariant, navVariants } from '../../../utils/motion';
+
 const Navbar = () => {
   const [state, setState] = useState(false);
 
@@ -24,7 +27,11 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <motion.header
+      variants={navVariants}
+      initial='hidden'
+      whileInView='show'
+    >
       <nav
         className={`bg-white w-full md:static md:text-sm ${
           state ? 'fixed z-10 h-full' : ''
@@ -72,10 +79,13 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          <div
+          <motion.div
             className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${
               state ? '' : 'hidden'
             }`}
+            variants={textVariant(0.1)}
+            initial='hidden'
+            whileInView='show'
           >
             <ul className='text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium'>
               {navigation.map((item, idx) => {
@@ -104,10 +114,10 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

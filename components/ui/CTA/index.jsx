@@ -1,7 +1,12 @@
+'use client';
+
 import SectionWrapper from '../../SectionWrapper';
 import NavLink from '../NavLink';
 import ctaImage from '../../../public/cta-image.jpg';
 import Image from 'next/image';
+
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
 
 const CTA = () => {
   return (
@@ -9,16 +14,28 @@ const CTA = () => {
       id='cta'
       className='pb-0'
     >
-      <div className='custom-screen'>
+      <motion.div
+        className='custom-screen'
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false, amount: 0.25 }}
+      >
         <div className='items-center gap-x-12 lg:flex'>
-          <div className='flex-1 sm:hidden lg:block'>
+          <motion.div
+            className='flex-1 sm:hidden lg:block'
+            variants={textVariant(0.6)}
+          >
             <Image
               src={ctaImage}
               className='rounded-lg md:max-w-lg'
               alt='Create Successful Business Models with Our IT Solutions'
             />
-          </div>
-          <div className='max-w-xl mt-6 md:mt-0 lg:max-w-2xl'>
+          </motion.div>
+          <motion.div
+            className='max-w-xl mt-6 md:mt-0 lg:max-w-2xl'
+            variants={textVariant(0.8)}
+          >
             <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
               Create Successful Business Models and Watch It Come True.
             </h2>
@@ -34,9 +51,9 @@ const CTA = () => {
             >
               Get started
             </NavLink>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };

@@ -1,4 +1,9 @@
+'use client';
+
 import SectionWrapper from '../../SectionWrapper';
+
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
 
 const Testimonials = () => {
   const testimonials = [
@@ -56,21 +61,38 @@ const Testimonials = () => {
       <div
         id='testimonials'
         className='max-w-screen-xl mx-auto px-4 md:px-8'
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false, amount: 0.25 }}
       >
         <div className='max-w-2xl sm:text-center md:mx-auto'>
-          <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
+          <motion.h2
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            variants={textVariant(0.7)}
+            initial='hidden'
+            whileInView='show'
+          >
             See what others saying about us
-          </h2>
-          <p className='mt-3 text-gray-600'>
+          </motion.h2>
+          <motion.p
+            className='mt-3 text-gray-600'
+            variants={textVariant(0.9)}
+            initial='hidden'
+            whileInView='show'
+          >
             Listen to what the experts around the world are saying about us.
-          </p>
+          </motion.p>
         </div>
         <div className='mt-12'>
           <ul className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
             {testimonials.map((item, idx) => (
-              <li
+              <motion.li
                 key={idx}
                 className='bg-white border p-4 rounded-xl'
+                variants={textVariant(0.7)}
+                initial='hidden'
+                whileInView='show'
               >
                 <figure>
                   <div className='flex items-center gap-x-4'>
@@ -92,7 +114,7 @@ const Testimonials = () => {
                     <p className='mt-6 text-gray-700'>{item.quote}</p>
                   </blockquote>
                 </figure>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

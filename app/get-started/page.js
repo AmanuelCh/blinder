@@ -5,6 +5,9 @@ import Button from '../../components/ui/Button';
 import Checkbox from '../../components/ui/Checkbox';
 import SectionWrapper from '../../components/SectionWrapper';
 
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../utils/motion';
+
 export default function GetStarted() {
   const servicesItems = [
     'Mobile development',
@@ -15,9 +18,20 @@ export default function GetStarted() {
 
   return (
     <SectionWrapper>
-      <div className='pt-28 pb-12'>
+      <div
+        className='pt-28 pb-12'
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false, amount: 0.25 }}
+      >
         <div className='custom-screen text-gray-600'>
-          <div className='max-w-lg mx-auto lg:flex '>
+          <motion.div
+            className='max-w-lg mx-auto lg:flex'
+            variants={textVariant(0.7)}
+            initial='hidden'
+            whileInView='show'
+          >
             <div className='max-w-lg text-left '>
               <h1 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
                 Contact me for a work
@@ -86,7 +100,7 @@ export default function GetStarted() {
                 </div>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </SectionWrapper>

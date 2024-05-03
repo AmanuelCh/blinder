@@ -1,4 +1,9 @@
+'use client';
+
 import SectionWrapper from '../../SectionWrapper';
+
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
 
 const Features = () => {
   const features = [
@@ -104,21 +109,31 @@ const Features = () => {
 
   return (
     <SectionWrapper>
-      <div
+      <motion.div
         id='features'
         className='custom-screen text-gray-600'
+        variants={staggerContainer}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: false, amount: 0.25 }}
       >
         <div className='max-w-2xl mx-auto space-y-3 sm:text-center'>
-          <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
+          <motion.h2
+            className='text-gray-800 text-3xl font-semibold sm:text-4xl'
+            variants={textVariant(0.2)}
+          >
             What sets me apart
-          </h2>
-          <p>These are among the things that set me apart from the rest</p>
+          </motion.h2>
+          <motion.p variants={textVariant(0.3)}>
+            These are among the things that set me apart from the rest
+          </motion.p>
         </div>
         <ul className='grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:mt-12'>
           {features.map((item, idx) => (
-            <li
+            <motion.li
               key={idx}
               className='space-y-3 bg-white border p-4 rounded-xl'
+              variants={textVariant(0.7)}
             >
               <div className='w-12 h-12 border text-indigo-600 rounded-full flex items-center justify-center'>
                 {item.icon}
@@ -127,10 +142,10 @@ const Features = () => {
                 {item.title}
               </h4>
               <p>{item.desc}</p>
-            </li>
+            </motion.li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };

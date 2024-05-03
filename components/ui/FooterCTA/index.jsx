@@ -1,10 +1,26 @@
+'use client';
+
 import SectionWrapper from '../../SectionWrapper';
 import NavLink from '../NavLink';
 
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
+
 const FooterCTA = () => (
   <SectionWrapper>
-    <div className='custom-screen'>
-      <div className='max-w-2xl mx-auto text-center'>
+    <div
+      className='custom-screen'
+      variants={staggerContainer}
+      initial='hidden'
+      whileInView='show'
+      viewport={{ once: false, amount: 0.25 }}
+    >
+      <motion.div
+        className='max-w-2xl mx-auto text-center'
+        variants={textVariant(0.9)}
+        initial='hidden'
+        whileInView='show'
+      >
         <h2 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
           Get started with Blinder today
         </h2>
@@ -18,7 +34,7 @@ const FooterCTA = () => (
         >
           Contact me
         </NavLink>
-      </div>
+      </motion.div>
     </div>
   </SectionWrapper>
 );

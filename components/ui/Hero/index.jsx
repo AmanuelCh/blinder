@@ -1,17 +1,38 @@
+'use client';
+
 import NavLink from '../NavLink';
+
+import { motion } from 'framer-motion';
+import { staggerContainer, textVariant } from '../../../utils/motion';
 
 const Hero = () => (
   <section>
-    <div className='custom-screen py-28 text-gray-600'>
+    <motion.div
+      className='custom-screen py-28 text-gray-600'
+      variants={staggerContainer}
+      initial='hidden'
+      whileInView='show'
+      viewport={{ once: false, amount: 0.25 }}
+    >
       <div className='space-y-5 max-w-4xl mx-auto text-center'>
-        <h1 className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'>
+        <motion.h1
+          className='text-4xl text-gray-800 font-extrabold mx-auto sm:text-6xl'
+          variants={textVariant(0.7)}
+        >
           Build and scale your next business idea faster
-        </h1>
-        <p className='max-w-xl mx-auto'>
+        </motion.h1>
+
+        <motion.p
+          className='max-w-xl mx-auto'
+          variants={textVariant(0.8)}
+        >
           I'm here for you to build and grow your business idea so that you get
           the maximum benefit.
-        </p>
-        <div className='flex items-center justify-center gap-x-3 font-medium text-sm'>
+        </motion.p>
+        <motion.div
+          className='flex items-center justify-center gap-x-3 font-medium text-sm'
+          variants={textVariant(0.9)}
+        >
           <NavLink
             href='/get-started'
             className='text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 '
@@ -25,9 +46,9 @@ const Hero = () => (
           >
             Learn more
           </NavLink>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   </section>
 );
 
