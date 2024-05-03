@@ -5,6 +5,19 @@
 html {
   scroll-behavior: smooth;
 }
+.contact-service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contact-service li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-container {
+  flex-basis: 60%;
+}
+
 .custom-screen {
   @apply max-w-screen-xl mx-auto px-4 md:px-8;
 }
@@ -22,4 +35,10 @@ html {
     );
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
+}
+
+@media (min-width: 1024px) {
+  .p {
+    max-width: 80%;
+  }
 }

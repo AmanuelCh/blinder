@@ -1,7 +1,9 @@
-import Head from 'next/head';
-import Input from '../components/ui/Input';
-import Button from '../components/ui/Button';
-import Checkbox from '../components/ui/Checkbox';
+'use client';
+
+import Input from '../../components/ui/Input';
+import Button from '../../components/ui/Button';
+import Checkbox from '../../components/ui/Checkbox';
+import SectionWrapper from '../../components/SectionWrapper';
 
 export default function GetStarted() {
   const servicesItems = [
@@ -12,18 +14,15 @@ export default function GetStarted() {
   ];
 
   return (
-    <>
-      <Head>
-        <title>Contact me - John Doe</title>
-      </Head>
+    <SectionWrapper>
       <div className='pt-28 pb-12'>
         <div className='custom-screen text-gray-600'>
-          <div className='max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none'>
-            <div className='max-w-lg sm:text-center lg:text-left'>
+          <div className='max-w-lg mx-auto lg:flex '>
+            <div className='max-w-lg text-left '>
               <h1 className='text-gray-800 text-3xl font-semibold sm:text-4xl'>
                 Contact me for a work
               </h1>
-              <p className='mt-3'>
+              <p className='mt-3 p'>
                 I am here to help. Get in touch with me or my team and let me
                 know how I can help, or shoot me an email on{' '}
                 <a
@@ -36,11 +35,8 @@ export default function GetStarted() {
                 </a>
               </p>
             </div>
-            <div className='flex-1 mt-12 sm:max-w-lg lg:max-w-md lg:mt-0'>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className='space-y-5 font-medium'
-              >
+            <div className='mt-12 sm:max-w-lg lg:mt-0 form-container'>
+              <form className='space-y-5 font-medium '>
                 <div>
                   <label>Full name</label>
                   <Input
@@ -69,12 +65,9 @@ export default function GetStarted() {
                 </div>
                 <div>
                   <label>Service</label>
-                  <ul className='mt-3 flex flex-wrap gap-x-8 gap-y-3 font-normal max-w-md sm:gap-x-16'>
+                  <ul className='mt-3 font-normal max-w-md contact-service'>
                     {servicesItems.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className='flex gap-x-2 items-center'
-                      >
+                      <li key={idx}>
                         <Checkbox id={`service-${idx}`} />
                         <label
                           htmlFor={`service-${idx}`}
@@ -96,6 +89,6 @@ export default function GetStarted() {
           </div>
         </div>
       </div>
-    </>
+    </SectionWrapper>
   );
 }

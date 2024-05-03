@@ -1,12 +1,12 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Brand from '../Brand';
 import NavLink from '../NavLink';
 
 const Navbar = () => {
   const [state, setState] = useState(false);
-  const { events } = useRouter();
 
   const navigation = [
     { title: 'Features', path: '#features' },
@@ -14,19 +14,13 @@ const Navbar = () => {
     { title: 'Testimonials', path: '#testimonials' },
   ];
 
-  useEffect(() => {
-    // Close the navbar menu when navigate
-    const handleState = () => {
-      document.body.classList.remove('overflow-hidden');
-      setState(false);
-    };
-    events.on('routeChangeStart', () => handleState());
-    events.on('hashChangeStart', () => handleState());
-  }, []);
-
   const handleNavMenu = () => {
     setState(!state);
     document.body.classList.toggle('overflow-hidden');
+  };
+  const handleScroll = () => {
+    setState(false);
+    document.body.classList.remove('overflow-hidden');
   };
 
   return (
@@ -89,6 +83,7 @@ const Navbar = () => {
                   <li
                     key={idx}
                     className='duration-150 hover:text-gray-900'
+                    onClick={() => handleScroll()}
                   >
                     <Link
                       href={item.path}
@@ -103,6 +98,7 @@ const Navbar = () => {
                 <NavLink
                   href='/get-started'
                   className='block font-medium text-sm text-white bg-gray-800 hover:bg-gray-600 active:bg-gray-900 md:inline'
+                  onClick={() => handleScroll()}
                 >
                   Let's work
                 </NavLink>
