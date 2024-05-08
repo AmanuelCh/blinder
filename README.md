@@ -17,3 +17,6 @@ Feel free to edit the contents and make it yours entirely.
  - Next.js
  - Tailwind CSS
  - Framer Motion
+
+### Some Screenshots
+
